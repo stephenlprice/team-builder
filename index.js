@@ -28,7 +28,7 @@ const managerQ = [
     },
     {   
         type: "input",
-        message: "What is the Manager's Office located (city)?",
+        message: "Where is the Manager's Office located (city)?",
         name: "office"
     }
 ];
@@ -41,7 +41,7 @@ const engineerQ = [
     },
     {   
         type: "list",
-        message: "What avatar would the Manager like?",
+        message: "What avatar would the Engineer like?",
         name: "sex",
         choices: ["male", "female"]
     },
@@ -70,7 +70,7 @@ const internQ = [
     },
     {   
         type: "list",
-        message: "What avatar would the Manager like?",
+        message: "What avatar would the Intern like?",
         name: "sex",
         choices: ["male", "female"]
     },
