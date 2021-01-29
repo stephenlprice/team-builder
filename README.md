@@ -5,6 +5,12 @@
 
   ## Overview
   An application that generates an HTML page describing members of an engineering team or startup. It tracks Managers, Engineers and Interns while displaying useful information and links.
+  <br>
+  
+  ### To get started, visit [this page!](https://stephenlprice.github.io/team-builder/)
+
+  ### Here is the [recorded demo](https://drive.google.com/file/d/1fkK4r-r5YSG1_H_QZtUs-YAJA_BNuQ3B/view?usp=sharing) of the application.
+
   <hr>
   <br>
 
