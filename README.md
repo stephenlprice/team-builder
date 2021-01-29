@@ -11,6 +11,8 @@
 
   ### Here is the [recorded demo](https://drive.google.com/file/d/1fkK4r-r5YSG1_H_QZtUs-YAJA_BNuQ3B/view?usp=sharing) of the application.
 
+  ![screenshot](./assets/svg/team-builder.png)
+
   <hr>
   <br>
 
@@ -57,6 +59,8 @@
   Abide by Github's code of conduct.
   <hr>
   <br>
+
+   ![screenshot](./assets/svg/team-buildr.svg)
 
   ## Testing
   Testing is more than welcome. Here are a few instructions on how to perform tests:<br>
