@@ -145,7 +145,7 @@ describe("employee", () => {
     });
 
     describe("getRole", () => {
-        it("should return the employee email via getEmail()", () => {
+        it("should return the employee role via getRole()", () => {
             const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
 
             const role = emp.getRole();

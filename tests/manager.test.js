@@ -180,7 +180,7 @@ describe("manager", () => {
     });
 
     describe("getRole", () => {
-        it("should return the manager email via getEmail()", () => {
+        it("should return the manager role via getRole()", () => {
             const emp = new manager("Jim", "28B43AJ", "jim@startup.com", "Austin");
 
             const role = emp.getRole();
