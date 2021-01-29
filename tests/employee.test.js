@@ -1,20 +1,21 @@
-const { describe } = require('@jest/globals');
+const { describe, expect } = require('@jest/globals');
 const { default: deprecatedOptions } = require('jest-config/build/Deprecated');
 const employee = require('../lib/employee.js');
 
 describe("employee", () => {
     describe("Initialization", () => {
         it("should instantiate an employee instance", () => {
-            const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
             expect(typeof(emp)).toBe("object");
         });
 
-        it("should initialize an employee object with valid arguments name, id, email", () => {
-            const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
+        it("should initialize an employee object with valid arguments name, id, email, sex", () => {
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
             
             expect(emp.name).toEqual("Jim");
             expect(emp.id).toEqual("28B43AJ");
             expect(emp.email).toEqual("jim@startup.com");
+            expect(emp.sex).toEqual("male");
         });
 
         it("should throw an error if provided with no arguments", () => {
@@ -35,7 +36,7 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee("", "28B43AJ", "jim@startup.com");
+                const emp = new employee("", "28B43AJ", "jim@startup.com", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -47,7 +48,7 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee(undefined, "28B43AJ", "jim@startup.com");
+                const emp = new employee(undefined, "28B43AJ", "jim@startup.com", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -59,7 +60,7 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee("Jim", "", "jim@startup.com");
+                const emp = new employee("Jim", "", "jim@startup.com", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -71,7 +72,7 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee("Jim", undefined, "jim@startup.com");
+                const emp = new employee("Jim", undefined, "jim@startup.com", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -83,7 +84,7 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee("Jim", "28B43AJ", "");
+                const emp = new employee("Jim", "28B43AJ", "", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -95,7 +96,7 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee("Jim", "28B43AJ", undefined);
+                const emp = new employee("Jim", "28B43AJ", undefined, "male");
             };
     
             expect(cb).toThrowError(err);
@@ -107,7 +108,31 @@ describe("employee", () => {
             );
 
             const cb = () => {
-                const emp = new employee("Jim", "28B43AJ", "jimstartup.com");
+                const emp = new employee("Jim", "28B43AJ", "jimstartup.com", "male");
+            };
+    
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if provided with no sex", () => {
+            const err = new Error(
+                "Expected parameter 'sex' to be a non-empty string"
+            );
+
+            const cb = () => {
+                const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "");
+            };
+    
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if provided with an undefined sex", () => {
+            const err = new Error(
+                "Expected parameter 'sex' to be a non-empty string"
+            );
+
+            const cb = () => {
+                const emp = new employee("Jim", "28B43AJ", "jim@startup.com", undefined);
             };
     
             expect(cb).toThrowError(err);
@@ -116,7 +141,7 @@ describe("employee", () => {
 
     describe("getName", () => {
         it("should return the employee name via getName()", () => {
-            const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
 
             const name = emp.getName();
 
@@ -126,7 +151,7 @@ describe("employee", () => {
 
     describe("getId", () => {
         it("should return the employee id via getId()", () => {
-            const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
 
             const id = emp.getId();
 
@@ -136,7 +161,7 @@ describe("employee", () => {
 
     describe("getEmail", () => {
         it("should return the employee email via getEmail()", () => {
-            const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
 
             const email = emp.getEmail();
 
@@ -144,9 +169,19 @@ describe("employee", () => {
         });
     });
 
+    describe("getSex", () => {
+        it("should return the employee email via getEmail()", () => {
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
+
+            const sex = emp.getSex();
+
+            expect(sex).toBe("male");
+        });
+    });
+
     describe("getRole", () => {
         it("should return the employee role via getRole()", () => {
-            const emp = new employee("Jim", "28B43AJ", "jim@startup.com");
+            const emp = new employee("Jim", "28B43AJ", "jim@startup.com", "male");
 
             const role = emp.getRole();
 

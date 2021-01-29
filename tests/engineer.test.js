@@ -5,17 +5,18 @@ const engineer = require('../lib/engineer.js');
 describe("engineer", () => {
     describe("Initialization", () => {
         it("should instantiate a engineer instance", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
             expect(typeof(emp)).toBe("object");
         });
 
-        it("should initialize a engineer object with valid arguments name, id, email, github", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+        it("should initialize a engineer object with valid arguments name, id, email, github, sex", () => {
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
             
             expect(emp.name).toEqual("Jim");
             expect(emp.id).toEqual("28B43AJ");
             expect(emp.email).toEqual("jim@startup.com");
             expect(emp.github).toEqual("https://github.com/stephenlprice");
+            expect(emp.sex).toEqual("male");
         });
 
         it("should throw an error if provided with no arguments", () => {
@@ -36,7 +37,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+                const emp = new engineer("", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -48,7 +49,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer(undefined, "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+                const emp = new engineer(undefined, "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -60,7 +61,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", "", "jim@startup.com", "https://github.com/stephenlprice");
+                const emp = new engineer("Jim", "", "jim@startup.com", "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -72,7 +73,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", undefined, "jim@startup.com", "https://github.com/stephenlprice");
+                const emp = new engineer("Jim", undefined, "jim@startup.com", "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -84,7 +85,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", "28B43AJ", "", "https://github.com/stephenlprice");
+                const emp = new engineer("Jim", "28B43AJ", "", "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -96,7 +97,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", "28B43AJ", undefined, "https://github.com/stephenlprice");
+                const emp = new engineer("Jim", "28B43AJ", undefined, "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -108,7 +109,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", "28B43AJ", "jimstartup.com", "https://github.com/stephenlprice");
+                const emp = new engineer("Jim", "28B43AJ", "jimstartup.com", "https://github.com/stephenlprice", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -120,7 +121,7 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "");
+                const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -132,7 +133,31 @@ describe("engineer", () => {
             );
 
             const cb = () => {
-                const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", undefined);
+                const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", undefined, "male");
+            };
+    
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if provided with no sex", () => {
+            const err = new Error(
+                "Expected parameter 'sex' to be a non-empty string"
+            );
+
+            const cb = () => {
+                const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "");
+            };
+    
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if provided with an undefined sex", () => {
+            const err = new Error(
+                "Expected parameter 'sex' to be a non-empty string"
+            );
+
+            const cb = () => {
+                const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", undefined);
             };
     
             expect(cb).toThrowError(err);
@@ -141,7 +166,7 @@ describe("engineer", () => {
 
     describe("getName", () => {
         it("should return the engineer name via getName()", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
 
             const name = emp.getName();
 
@@ -151,7 +176,7 @@ describe("engineer", () => {
 
     describe("getId", () => {
         it("should return the engineer id via getId()", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
 
             const id = emp.getId();
 
@@ -161,7 +186,7 @@ describe("engineer", () => {
 
     describe("getEmail", () => {
         it("should return the engineer email via getEmail()", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
 
             const email = emp.getEmail();
 
@@ -171,7 +196,7 @@ describe("engineer", () => {
 
     describe("getGithub", () => {
         it("should return the engineer office via getGithub()", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
 
             const github = emp.getGithub();
 
@@ -179,9 +204,19 @@ describe("engineer", () => {
         });
     });
 
+    describe("getSex", () => {
+        it("should return the engineer email via getEmail()", () => {
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
+
+            const sex = emp.getSex();
+
+            expect(sex).toBe("male");
+        });
+    });
+
     describe("getRole", () => {
         it("should return the engineer email via getEmail()", () => {
-            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice");
+            const emp = new engineer("Jim", "28B43AJ", "jim@startup.com", "https://github.com/stephenlprice", "male");
 
             const role = emp.getRole();
 

@@ -5,17 +5,18 @@ const intern = require('../lib/intern.js');
 describe("intern", () => {
     describe("Initialization", () => {
         it("should instantiate a intern instance", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
             expect(typeof(emp)).toBe("object");
         });
 
-        it("should initialize a intern object with valid arguments name, id, email, school", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+        it("should initialize a intern object with valid arguments name, id, email, school, sex", () => {
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
             
             expect(emp.name).toEqual("Jim");
             expect(emp.id).toEqual("28B43AJ");
             expect(emp.email).toEqual("jim@startup.com");
             expect(emp.school).toEqual("UT");
+            expect(emp.sex).toEqual("male");
         });
 
         it("should throw an error if provided with no arguments", () => {
@@ -36,7 +37,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("", "28B43AJ", "jim@startup.com", "UT");
+                const emp = new intern("", "28B43AJ", "jim@startup.com", "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -48,7 +49,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern(undefined, "28B43AJ", "jim@startup.com", "UT");
+                const emp = new intern(undefined, "28B43AJ", "jim@startup.com", "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -60,7 +61,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", "", "jim@startup.com", "UT");
+                const emp = new intern("Jim", "", "jim@startup.com", "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -72,7 +73,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", undefined, "jim@startup.com", "UT");
+                const emp = new intern("Jim", undefined, "jim@startup.com", "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -84,7 +85,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", "28B43AJ", "", "UT");
+                const emp = new intern("Jim", "28B43AJ", "", "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -96,7 +97,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", "28B43AJ", undefined, "UT");
+                const emp = new intern("Jim", "28B43AJ", undefined, "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -108,7 +109,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", "28B43AJ", "jimstartup.com", "UT");
+                const emp = new intern("Jim", "28B43AJ", "jimstartup.com", "UT", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -120,7 +121,7 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "");
+                const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "", "male");
             };
     
             expect(cb).toThrowError(err);
@@ -132,7 +133,31 @@ describe("intern", () => {
             );
 
             const cb = () => {
-                const emp = new intern("Jim", "28B43AJ", "jim@startup.com", undefined);
+                const emp = new intern("Jim", "28B43AJ", "jim@startup.com", undefined, "male");
+            };
+    
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if provided with no sex", () => {
+            const err = new Error(
+                "Expected parameter 'sex' to be a non-empty string"
+            );
+
+            const cb = () => {
+                const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "");
+            };
+    
+            expect(cb).toThrowError(err);
+        });
+
+        it("should throw an error if provided with an undefined sex", () => {
+            const err = new Error(
+                "Expected parameter 'sex' to be a non-empty string"
+            );
+
+            const cb = () => {
+                const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", undefined);
             };
     
             expect(cb).toThrowError(err);
@@ -141,7 +166,7 @@ describe("intern", () => {
 
     describe("getName", () => {
         it("should return the intern name via getName()", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
 
             const name = emp.getName();
 
@@ -151,7 +176,7 @@ describe("intern", () => {
 
     describe("getId", () => {
         it("should return the intern id via getId()", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
 
             const id = emp.getId();
 
@@ -161,7 +186,7 @@ describe("intern", () => {
 
     describe("getEmail", () => {
         it("should return the intern email via getEmail()", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
 
             const email = emp.getEmail();
 
@@ -171,7 +196,7 @@ describe("intern", () => {
 
     describe("getSchool", () => {
         it("should return the intern office via getOffice()", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
 
             const school = emp.getSchool();
 
@@ -179,9 +204,19 @@ describe("intern", () => {
         });
     });
 
+    describe("getSex", () => {
+        it("should return the intern email via getEmail()", () => {
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
+
+            const sex = emp.getSex();
+
+            expect(sex).toBe("male");
+        });
+    });
+
     describe("getRole", () => {
         it("should return the intern role via getRole()", () => {
-            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT");
+            const emp = new intern("Jim", "28B43AJ", "jim@startup.com", "UT", "male");
 
             const role = emp.getRole();
 
