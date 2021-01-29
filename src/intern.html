@@ -1,5 +1,3 @@
-<h3 class="groupName d-flex justify-content-center justify-content-md-start">Interns</h3>
-<hr>
 <div class="profile">
     <div class="d-flex text-muted pt-3 align-items-center">
         <div class="d-inline-flex flex-grow-1">
@@ -11,13 +9,13 @@
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div class="row d-flex align-items-center">
                             <div class="col-12 col-sm-6">
-                                <h5>${intern.name}</h5>
-                                <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${intern.name}," t
-                                    arget="_blank">${intern.email}</a></p>
+                                <h5>{{ name }}</h5>
+                                <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello {{ name }}," 
+                                    target="_blank">{{ email }}</a></p>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <p>ID: ${intern.id}</p>
-                                <p><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${intern.username}</a></p>
+                                <p>ID: {{ id }}</p>
+                                <p><i class="fas fa-graduation-cap"></i> {{ school }}</p>
                             </div>
                         </div>
                     </div>
