@@ -11,6 +11,12 @@ const managerQ = [
         name: "name"
     },
     {   
+        type: "list",
+        message: "What avatar would the Manager like?",
+        name: "sex",
+        choices: ["male", "female"]
+    },
+    {   
         type: "input",
         message: "What is the Manager's ID?",
         name: "id"
@@ -34,6 +40,12 @@ const engineerQ = [
         name: "name"
     },
     {   
+        type: "list",
+        message: "What avatar would the Manager like?",
+        name: "sex",
+        choices: ["male", "female"]
+    },
+    {   
         type: "input",
         message: "What is the Engineer's ID?",
         name: "id"
@@ -55,6 +67,12 @@ const internQ = [
         type: "input",
         message: "What is the Intern's name?",
         name: "name"
+    },
+    {   
+        type: "list",
+        message: "What avatar would the Manager like?",
+        name: "sex",
+        choices: ["male", "female"]
     },
     {   
         type: "input",
@@ -91,10 +109,15 @@ function managerAsk() {
             let id = data.id;
             let email = data.email;
             let office = data.office;
+            let sex = "";
+            if (data.sex === "male") {
+                sex = "./assets/svg/undraw_male_avatar.svg";
+            }
+            else if (data.sex === "female") {
+                sex = "./assets/svg/undraw_female_avatar.svg";
+            }
 
-            console.log(name);
-
-            const newManager = new manager(name, id, email, office);
+            const newManager = new manager(name, id, email, office, sex);
             team.push(newManager);
             menuAsk();
         }); 
@@ -108,8 +131,15 @@ function engineerAsk() {
             let id = data.id;
             let email = data.email;
             let github = data.github;
+            let sex = "";
+            if (data.sex === "male") {
+                sex = "./assets/svg/undraw_male_avatar.svg";
+            }
+            else if (data.sex === "female") {
+                sex = "./assets/svg/undraw_female_avatar.svg";
+            }
 
-            const newEngineer = new engineer(name, id, email, github);
+            const newEngineer = new engineer(name, id, email, github, sex);
             team.push(newEngineer);
             menuAsk();
         });
@@ -123,8 +153,15 @@ function internAsk() {
             let id = data.id;
             let email = data.email;
             let school = data.school;
+            let sex = "";
+            if (data.sex === "male") {
+                sex = "./assets/svg/undraw_male_avatar.svg";
+            }
+            else if (data.sex === "female") {
+                sex = "./assets/svg/undraw_female_avatar.svg";
+            }
 
-            const newIntern = new intern(name, id, email, school);
+            const newIntern = new intern(name, id, email, school, sex);
             team.push(newIntern);
             menuAsk();
         });
@@ -157,7 +194,9 @@ function init() {
     output += '   ||   (____)  ||____|| || || ||   ||____  ||  ||  ||  ||      ||  || (|___)  ||____     \n';
     output += '   ||   ||____  ||____|| || || ||   ||   || ||  ||  ||  ||____  ||  || ||____  ||   ||    \n';
     output += '  (__)  (_____) ||    || || || ||   ||___|| ||__|| _||_ ||____| ||__// (_____) ||   ||    \n';
+    output += '---------------------------------------------------------------------------------------    \n';
     console.log(output);
+
     managerAsk();
 }
 
