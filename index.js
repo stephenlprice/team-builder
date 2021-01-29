@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const path = require("path");
 const manager = require("./lib/manager");
 const engineer = require("./lib/engineer");
 const intern = require("./lib/intern");
@@ -84,14 +85,16 @@ const menu = {
 const team = [
 ];
 
-managerAsk() = () => {
+function managerAsk() {
     inquirer
         .prompt(managerQ)
-        .then(() => {
-            let name = managerQ.name;
-            let id = managerQ.id;
-            let email = managerQ.email;
-            let office = managerQ.office;
+        .then((data) => {
+            let name = data.name;
+            let id = data.id;
+            let email = data.email;
+            let office = data.office;
+
+            console.log(name);
 
             const newManager = new manager(name, id, email, office);
             team.push(newManager);
@@ -99,14 +102,14 @@ managerAsk() = () => {
         }); 
 }
 
-engineerAsk() = () => {
+function engineerAsk() {
     inquirer
         .prompt(engineerQ)
-        .then(() => {
-            let name = engineerQ.name;
-            let id = engineerQ.id;
-            let email = engineerQ.email;
-            let github = engineerQ.github;
+        .then((data) => {
+            let name = data.name;
+            let id = data.id;
+            let email = data.email;
+            let github = data.github;
 
             const newEngineer = new engineer(name, id, email, github);
             team.push(newEngineer);
@@ -114,14 +117,14 @@ engineerAsk() = () => {
         });
 }
 
-internAsk() = () => {
+function internAsk() {
     inquirer
         .prompt(internQ)
-        .then(() => {
-            let name = internQ.name;
-            let id = internQ.id;
-            let email = internQ.email;
-            let school = internQ.school;
+        .then((data) => {
+            let name = data.name;
+            let id = data.id;
+            let email = data.email;
+            let school = data.school;
 
             const newIntern = new intern(name, id, email, school);
             team.push(newIntern);
@@ -129,13 +132,14 @@ internAsk() = () => {
         });
 }
 
-menuAsk() = () => {
+function menuAsk() {
     inquirer
         .prompt(menu)
         .then((answer) => {
             let choice = answer.choice;
             if (choice === "Finish Team Profile") {
-                writeHTML("index.html", team);
+                console.log("Analyzing input data...");
+                htmlRender(team);
             }
             else if (choice === "Engineer"){
                 engineerAsk();
@@ -145,21 +149,9 @@ menuAsk() = () => {
             }
         });
 }
-
-writeHTML() = (filename, data) => {
-    console.log("Writing Team Profile to the page...");
-    const html = htmlRender(data);
-
-    fs.writeFile(filename, html, 'utf8', (err) =>
-    err ? console.error(err) : console.log('Success! Team Profile written as index.html, now available in root...')
-    );
-    console.log("Thank you for using Team Builder.");
-    console.log("\nGoodbye!");
-    process.exit(0);
-}
         
 // function to initialize program
-init() = () => {
+function init() {
     managerAsk();
 }
 
