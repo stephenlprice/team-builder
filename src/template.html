@@ -13,183 +13,188 @@
 <body class="bg-transparent">
     <nav class="navbar navbar-dark">
         <div class="container-fluid d-flex justify-content-center">
-            <span class="navbar-brand mb-0 h1">TEAM BUILDER</span>
+            <span id="brand" class="navbar-brand mb-0 h1">TEAM BUILDER</span>
         </div>
     </nav>
 
     <main class="container">
         <!-- Manager -->
         <section id="manager" class="container rounded shadow-lg my-3 p-3">
-            <h3 class="groupName">Manager</h3>
+            <h3 class="groupName d-flex justify-content-center justify-content-md-start">Manager</h3>
+            <hr>
             <div class="profile">
                 <div class="d-flex text-muted pt-3 align-items-center">
-                    <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
-                    <div class="d-inline-flex">
-                        <div class="table-responsive">
-                            <table class="table table-borderless text-muted">
-                                <thead>
-                                    <tr>
-                                        <th scope="col"><h5>${manager.name}</h5></th>
-                                        <th scope="col">ID: ${manager.id}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td colspan="2"><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${name}," target="_blank">${manager.email}</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"><i class="fas fa-building"></i> ${manager.location}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <div class="d-inline-flex flex-grow-1">
+                        <div class="container">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-12 col-md-2 col-lg-2 col-xl-1 d-flex justify-content-center">
+                                    <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
+                                </div>
+                                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                    <div class="row d-flex align-items-center">
+                                        <div class="col-12 col-sm-6">
+                                            <h5>${manager.name}</h5>
+                                            <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${manager.name}," t
+                                                arget="_blank">${manager.email}</a></p>
+                                        </div>
+                                        <div class="col-12 col-sm-6">
+                                            <p>ID: ${manager.id}</p>
+                                            <p><i class="fas fa-building"></i> ${manager.location}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-0 col-md-2 col-lg-4 col-xl-6"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <div class="container">
             <div class="row">
-                <div id="engineers" class="employee col-sm">
+                <div id="engineers" class="employee col-12">
                     <!-- Engineers -->
                     <section  class="container rounded shadow-lg my-3 p-3">
-                        <h3 class="groupName">Engineers</h3>
+                        <h3 class="groupName d-flex justify-content-center justify-content-md-start">Engineers</h3>
+                        <hr>
                         <div class="profile">
                             <div class="d-flex text-muted pt-3 align-items-center">
-                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
-                                <div class="d-inline-flex">
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless text-muted">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col"><h5>${engineer.name}</h5></th>
-                                                    <th scope="col">ID: ${engineer.id}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-pencil-ruler"></i> ${engineer.role}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${name}," target="_blank">${engineer.email}</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${engineer.username}</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="d-inline-flex flex-grow-1">
+                                    <div class="container">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-12 col-md-2 col-lg-2 col-xl-1 d-flex justify-content-center">
+                                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
+                                            </div>
+                                            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-12 col-sm-6">
+                                                        <h5>${engineer.name}</h5>
+                                                        <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${engineer.name}," t
+                                                            arget="_blank">${engineer.email}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <p>ID: ${engineer.id}</p>
+                                                        <p><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${engineer.username}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-0 col-md-2 col-lg-4 col-xl-6"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="profile">
                             <div class="d-flex text-muted pt-3 align-items-center">
-                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
-                                <div class="d-inline-flex">
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless text-muted">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col"><h5>${engineer.name}</h5></th>
-                                                    <th scope="col">ID: ${engineer.id}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-pencil-ruler"></i> ${engineer.role}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${name}," target="_blank">${engineer.email}</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${engineer.username}</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="d-inline-flex flex-grow-1">
+                                    <div class="container">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-12 col-md-2 col-lg-2 col-xl-1 d-flex justify-content-center">
+                                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
+                                            </div>
+                                            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-12 col-sm-6">
+                                                        <h5>${engineer.name}</h5>
+                                                        <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${engineer.name}," t
+                                                            arget="_blank">${engineer.email}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <p>ID: ${engineer.id}</p>
+                                                        <p><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${engineer.username}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-0 col-md-2 col-lg-4 col-xl-6"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="profile">
                             <div class="d-flex text-muted pt-3 align-items-center">
-                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
-                                <div class="d-inline-flex">
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless text-muted">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col"><h5>${engineer.name}</h5></th>
-                                                    <th scope="col">ID: ${engineer.id}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-pencil-ruler"></i> ${engineer.role}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${name}," target="_blank">${engineer.email}</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${engineer.username}</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="d-inline-flex flex-grow-1">
+                                    <div class="container">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-12 col-md-2 col-lg-2 col-xl-1 d-flex justify-content-center">
+                                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
+                                            </div>
+                                            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-12 col-sm-6">
+                                                        <h5>${engineer.name}</h5>
+                                                        <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${engineer.name}," t
+                                                            arget="_blank">${engineer.email}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <p>ID: ${engineer.id}</p>
+                                                        <p><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${engineer.username}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-0 col-md-2 col-lg-4 col-xl-6"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </div>
-                <div id="interns" class="employee col-sm">
+                <div id="interns" class="employee col-12">
                     <!-- Interns -->
                     <section class="container rounded shadow-lg my-3 p-3">
-                        <h3 class="groupName">Interns</h3>
+                        <h3 class="groupName d-flex justify-content-center justify-content-md-start">Interns</h3>
+                        <hr>
                         <div class="profile">
                             <div class="d-flex text-muted pt-3 align-items-center">
-                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
-                                <div class="d-inline-flex">
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless text-muted">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col"><h5>${intern.name}</h5></th>
-                                                    <th scope="col">ID: ${intern.name}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${name}," target="_blank">${intern.email}</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${intern.username}</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="d-inline-flex flex-grow-1">
+                                    <div class="container">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-12 col-md-2 col-lg-2 col-xl-1 d-flex justify-content-center">
+                                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
+                                            </div>
+                                            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-12 col-sm-6">
+                                                        <h5>${intern.name}</h5>
+                                                        <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${intern.name}," t
+                                                            arget="_blank">${intern.email}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <p>ID: ${intern.id}</p>
+                                                        <p><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${intern.username}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-0 col-md-2 col-lg-4 col-xl-6"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="profile">
                             <div class="d-flex text-muted pt-3 align-items-center">
-                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
-                                <div class="d-inline-flex">
-                                    <div class="table-responsive">
-                                        <table class="table table-borderless text-muted">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col"><h5>${intern.name}</h5></th>
-                                                    <th scope="col">ID: ${intern.name}</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${name}," target="_blank">${intern.email}</a></td>
-                                                </tr>
-                                                <tr>
-                                                    <td colspan="2"><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${intern.username}</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="d-inline-flex flex-grow-1">
+                                    <div class="container">
+                                        <div class="row d-flex align-items-center">
+                                            <div class="col-12 col-md-2 col-lg-2 col-xl-1 d-flex justify-content-center">
+                                                <img class="me-2 rounded" src="../assets/svg/profile-pic.svg">
+                                            </div>
+                                            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                                <div class="row d-flex align-items-center">
+                                                    <div class="col-12 col-sm-6">
+                                                        <h5>${intern.name}</h5>
+                                                        <p><i class="fas fa-envelope"></i> <a href="mailto:${email}?subject=Inquiry%20From%20Team%20Builder&body=Hello ${intern.name}," t
+                                                            arget="_blank">${intern.email}</a></p>
+                                                    </div>
+                                                    <div class="col-12 col-sm-6">
+                                                        <p>ID: ${intern.id}</p>
+                                                        <p><i class="fab fa-github"></i> <a href="https://github.com/${username}" target="_blank">${intern.username}</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-0 col-md-2 col-lg-4 col-xl-6"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
